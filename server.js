@@ -7,12 +7,14 @@ const register = require('./controllers/register.js');
 const signIn = require('./controllers/signIn.js');
 const image = require('./controllers/image.js');
 const PORT = process.env.PORT;
+import * as secrets from './secrets/secrets';
 
 
 const db = knex({
     client: 'pg',
     connection: {
-    connectionString : process.env.DATABASE_URL,
+    // connectionString : process.env.DATABASE_URL,
+    connectionString : secrets.DATABASE_URL,
     ssl: {
       rejectUnauthorized: false
     }
